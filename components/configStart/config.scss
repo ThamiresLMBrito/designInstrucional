@@ -1,0 +1,208 @@
+:root {
+    --text-size-1: 1em;
+    --text-size-2: 0.8em;
+    --text-size-H1: 2em;
+    --text-size-H2: 1.5em;
+    --text-size-H3: 1.17em;
+    --height: 1.5em;
+}
+
+html[text-size='1'] {
+    --text-size-1: 1.3em;
+    --text-size-2: 1em;
+    --text-size-H1: 2.2em;
+    --text-size-H2: 1.7em;
+    --text-size-H3: 1.37em;
+    --height: 1.6em;
+    @media screen and (max-width: 768px) {
+        --text-size-1: 1.05em;
+        --text-size-2: 0.85em;
+        --text-size-H1: 2.05em;
+        --text-size-H2: 1.55em;
+        --text-size-H3: 1.20em;
+        --height: 1.55em;
+    }
+    @media screen and (min-width: 769px) and (max-width: 1024px) {
+        --text-size-1: 1.1em;
+        --text-size-2: 1em;
+        --text-size-H1: 2.1em;
+        --text-size-H2: 1.77em;
+        --text-size-H3: 1.40em;
+        --height: 1.66em;
+    }
+}
+
+html[text-size='2'] {
+    --text-size-1: 1.5em;
+    --text-size-2: 1.2em;
+    --text-size-H1: 2.4em;
+    --text-size-H2: 2em;
+    --text-size-H3: 1.57em;
+    --height: 1.7em;
+    @media screen and (max-width: 768px) {
+        --text-size-1: 1.1em;
+        --text-size-2: 0.9em;
+        --text-size-H1: 2.1em;
+        --text-size-H2: 1.6em;
+        --text-size-H3: 1.25em;
+        --height: 1.6em;
+    }
+    @media screen and (min-width: 769px) and (max-width: 1024px) {
+        --text-size-1: 1.2em;
+        --text-size-2: 1.55em;
+        --text-size-H1: 2.15em;
+        --text-size-H2: 1.85em;
+        --text-size-H3: 1.45m;
+        --height: 1.75em;
+    }
+    .notify-container {
+        width: 30%;
+        @media screen and (max-width: 768px) {
+            width: 97%;
+        }
+    }
+    .notify-cation {
+        height: 80px;
+        filter: brightness();
+        @media screen and (max-width: 768px) {
+            min-height: 15vh;
+        }
+    }
+}
+
+.config {
+    width: 100%;
+    height: 100%;
+    position: fixed;
+    top: 0;
+    left: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: rgba(#000, 0.6);
+    z-index: 10;
+    display: none;
+    span {
+        color: white;
+        position: absolute;
+        bottom: 55px;
+        font-size: 0.8em;
+    }
+}
+
+.config-modal {
+    position: fixed;
+    width: 20vw;
+    height: 60vh;
+    background-color: var(--theme-dark-10);
+    align-self: center;
+    justify-self: center;
+    border-radius: 10px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    user-select: none;
+    border: 1px solid var(--theme-dark-25);
+    h2 {
+        width: 100%;
+        height: 15%;
+        background-color: var(--theme-dark-20);
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        color: white;
+        border-radius: 10px 10px 0 0;
+    }
+    @media (max-width: 767px) {
+        width: 70vw;
+    }
+    @media (max-width: 1024px) and (min-width: 767px) {
+        width: 50vw;
+        height: 45vh;
+    }
+}
+
+.config-item {
+    width: 95%;
+    min-height: 15%;
+    background-color: var(--theme-light-10);
+    border-radius: 10px;
+    margin-top: 5px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    color: white;
+    padding: 5px;
+}
+
+.btn-mode {
+    width: 50px;
+    height: 25px;
+    background-color: var(--theme-dark-10);
+    border-radius: 50px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    // justify-content: start;
+    transition: all 0.4s;
+    &::after {
+        content: '';
+        width: 20px;
+        height: 20px;
+        border-radius: 40px;
+        background-color: var(--theme);
+        position: absolute;
+        right: initial;
+        left: 2px;
+        transition: all 0.4s;
+    }
+}
+
+.mode--active {
+    transition: all 0.4s;
+    &::after {
+        background-color: var(--theme-light-5);
+        right: 2px;
+        left: initial;
+        box-shadow: inset 6px 0 0 2px white;
+        transition: all 0.4s;
+    }
+}
+
+.btn-config-ok {
+    width: 100px;
+    height: 40px;
+    border-radius: 5px;
+    background-color: var(--theme-dark-20);
+    position: absolute;
+    bottom: 2%;
+    color: white;
+}
+
+.text-size-container {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    button {
+        width: 30px;
+        height: 30px;
+        background-color: var(--theme);
+        border-radius: 5px;
+        color: white;
+        margin: 2px;
+        &:nth-child(1) {
+            font-size: 0.8em;
+        }
+        &:nth-child(2) {
+            font-size: 0.9em;
+        }
+        &:nth-child(3) {
+            font-size: 1em;
+        }
+    }
+}
+
+.text--active {
+    background-color: var(--theme-light-20)!important;
+}

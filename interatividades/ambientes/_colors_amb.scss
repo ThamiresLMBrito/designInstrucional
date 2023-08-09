@@ -1,0 +1,4 @@
+$cor-int-main: rgb(44, 63, 128);
+$cor-int-light: lighten($cor-int-main, 40%);
+$cor-int-dark: darken($cor-int-main, 10%);
+$cor-int-contrast: rgb(255, 255, 255);

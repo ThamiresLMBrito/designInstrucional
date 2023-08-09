@@ -1,0 +1,214 @@
+@keyframes pulsarFluxo {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(0.95);
+    }
+}
+
+@keyframes boxDown {
+    from {
+        transform: translateY(-20px);
+    }
+    to {
+        transform: translateY(0);
+    }
+}
+
+@keyframes touchcas {
+    from {
+        border-radius: 30px;
+        //width: 0%;
+        transform: scale3d(0, 0, 0);
+    }
+    to {
+        border-radius: 130px;
+        //width: 100%;
+        transform: scale3d(1, 1, 0.1);
+    }
+}
+
+.flx_cas-container {
+    min-height: 50vh;
+    height: fit-content;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    @media (max-width: 575.98px) {
+        flex-direction: column;
+        height: fit-content;
+    }
+}
+
+.flx_cas-col {
+    height: 100%;
+    width: 50%;
+    margin: 10px;
+    display: flex;
+    flex-direction: column;
+    @media (max-width: 575.98px) {
+        justify-self: center;
+        height: fit-content;
+        width: 90vw;
+    }
+}
+
+.flx_cas-row-box {
+    height: 20%;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    position: relative;
+    align-items: center;
+    @media (max-width: 575.98px) {
+        height: 15vh;
+    }
+}
+
+.flx_cas-row-line {
+    height: 5vh;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    bottom: -15%;
+    @media (max-width: 768px) {
+        bottom: -1%;
+    }
+}
+
+@mixin flx_cas_btn {
+    border: 2px solid var(--main-light-45);
+    border-radius: 10px;
+    height: 13vh;
+    width: 100%;
+    color: var(--start-white);
+    z-index: 2;
+    transition: all 0.6s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    text-align: center;
+    &:hover {
+        transition: all 0.6s;
+        background-color: var(--main-light-60);
+    }
+}
+
+.flx_cas_btn-default {
+    @include flx_cas_btn;
+    background-color: var(--start-white);
+    border-style: dashed;
+    overflow: hidden;
+    cursor: pointer;
+    p {
+        visibility: hidden;
+    }
+}
+
+.sem-scroll {
+    overflow: hidden !important;
+    // classe usada especificamente para a matéria de educaçao finaceira.
+}
+
+.flx_cas_btn-ativo {
+    @include flx_cas_btn;
+    background-color: var(--theme-contrast-light-35) !important;
+    border: none !important;
+    animation: boxDown 0.4s;
+    transition: all 0.4s;
+    color: var(--theme-contrast-dark-30);
+    overflow: auto;
+    cursor: pointer;
+    p {
+        visibility: visible !important;
+        padding: 10px !important;
+        margin: 0 !important;
+        //font-size: small;
+        align-self: center;
+        text-indent: 0;
+        @media (min-width: 567px) and (max-width: 991.98px) {
+            font-size: 0.8em !important;
+        }
+    }
+    h3 {
+        font-weight: bold;
+        font-size: 1.4em;
+        visibility: visible!important;
+        color: var(--theme-light-40);
+        margin: 0;
+        align-self: center !important;
+    }
+}
+
+.flx_cas-btn-inicial {
+    background-color: var(--theme-contrast-dark-10) !important;
+    overflow: hidden !important;
+}
+
+.flx_cas-line_default {
+    height: 100%;
+    width: 0%;
+    border: 2px dashed var(--theme-contrast-light-25);
+    justify-self: center;
+}
+
+.flx_cas-line_ativo {
+    height: 100%;
+    width: 0%;
+    border: 2px solid var(--theme-contrast-light-25);
+    justify-self: center;
+}
+
+.animaTouchCas {
+    display: flex;
+    justify-content: center;
+    &::after {
+        content: "";
+        width: 10%;
+        height: 75%;
+        background-color: var(--theme-contrast-light-35);
+        position: absolute;
+        animation: touchcas 2s infinite;
+        transform-origin: center;
+        justify-self: center;
+        animation-delay: 0.2s;
+    }
+    &::before {
+        content: "";
+        width: 10%;
+        height: 75%;
+        background-color: var(--theme-contrast-light-40);
+        position: absolute;
+        animation: touchcas 2s infinite;
+        transform-origin: center;
+        justify-self: center;
+    }
+    @media (max-width: 576px) {
+        &::after {
+            width: 50px;
+            height: 50%;
+        }
+        &::before {
+            width: 50px;
+            height: 50%;
+        }
+    }
+}
+
+//ScrollBar
+.scrollbar::-webkit-scrollbar {
+    width: 6px
+}
+
+.scrollbar::-webkit-scrollbar-track {
+    background: var(--main-light-45);
+    border-radius: 0px 20px 20px 0px
+}
+
+.scrollbar::-webkit-scrollbar-thumb {
+    background: var(var(--main-light-60));
+    border-radius: 20px
+}

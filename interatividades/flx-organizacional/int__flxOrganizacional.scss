@@ -1,0 +1,406 @@
+
+    @keyframes flx_orgBox{
+    from{-webkit-clip-path: inset(0 50% 0 50%);clip-path: inset(0 50% 0 50%);}
+    to{-webkit-clip-path: inset(0 0 0 0);clip-path: inset(0 0 0 0);}
+}
+
+@keyframes touchOrg{
+    from {
+        border-radius: 130px;
+        transform: scale3d(0,0,0);
+    }
+    to {
+        border-radius: 130px;
+        transform: scale3d(1,1,0.1);
+    }
+}
+
+
+.flx_org-container{
+    min-height: 25vh;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    margin-bottom: 2em;
+    
+@media (max-width: 575.98px) {
+    display: flex;
+    width: 100%;
+ }    
+}
+.flx_org-col {
+    height: 100%;
+    width: 80%;
+    display: flex;
+    flex-direction: column;
+    //margin: 0 10px 0 10px;
+@media (max-width: 575.98px) { 
+    justify-self: center;
+    width: 100%;
+    }
+}
+
+.flx_org-row-box{
+    height: 15vh;
+    display: flex;
+    justify-content: center;
+}
+
+.flx_org-row-line{
+    height: 10vh;
+    display: flex;
+    user-select: none;
+    justify-content: center;
+    align-items: center;
+    width: 100%;
+}
+.flx_org-row-line-mult{
+    height: 5%;
+    display: flex;
+    justify-content: space-around;
+    user-select: none;
+}
+
+
+@mixin flx_org-btn{
+background-color: var(--theme-contrast-light-5);
+color: white;
+border: 2px dashed ;
+border-color: var(--theme-contrast-dark-10);
+border-radius: 14px;
+height: 100%;
+z-index: 2;
+transition: all 0.6s;
+cursor: pointer;
+display: flex;
+align-items: center;
+justify-content: center;
+position: relative;
+text-align:center !important;
+//font-family: "-apple-system", "BlinkMacSystemFont", "Segoe UI", "Roboto", "Helvetica Neue", Arial, sans-serif, "Apple Color Emoji", "Segoe UI Emoji", "Segoe UI Symbol", "Noto Color Emoji";
+overflow-y: auto;
+margin: 5px;
+
+
+p {
+    visibility: hidden;
+    margin: 0px !important;
+}
+
+    // &:hover{
+    //     transition: all 0.6s;
+    //     background-color:var(--theme-contrast-light-10);
+    //     color: rgba(white, $alpha: 0.0);
+    // }
+}
+
+.flx_org-btn-inicial{
+    //animation: none;
+    background-color: var(--theme-contrast-dark-5) !important;
+    border: 4px outset var(--start-bg) !important;
+
+    &::after{
+        animation: none !important;
+        display: none;
+    }
+}
+
+
+.flx_org-btn-ativo{
+    background-color: var(--theme-contrast-dark-30);
+    color: var(--start-bg) ;
+    border: none !important;
+
+    &::after{
+        content: "";
+        width: 100%;
+        height: 100%;
+        border-radius: 10px;
+        background-color: var(--theme-contrast-light-10);
+        animation: flx_orgBox 1s;
+        transition: 4ms;
+        position: absolute;
+        z-index: -1;        
+    }
+    // &:hover{
+    //     color: var(--theme-contrast-dark-10);
+    // }
+    p {
+        visibility: visible !important;
+        text-indent: 0px !important;
+        text-align: center !important;
+        overflow: auto;
+        animation-delay: 0.5s;
+        align-self: center;
+        padding: 5px;
+        //height: 100%;
+    }
+    h3{
+        font-weight: bold;
+        visibility: visible!important;
+        color: var(--theme-contrast-light-40);
+        margin: 0;
+        align-self: center;
+    }
+    
+
+    @media (min-width: 567px) and (max-width: 991.98px) { 
+        p {
+            font-size: 0.8em;
+        }
+        h3{
+            font-size: 1em !important;
+        }
+        }
+    
+    
+}
+
+
+
+.flx_org-btn-100{
+    @include flx_org-btn;
+    width: 100%;
+    p{
+        margin: 0px !important;
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+        //-webkit-hyphens: auto;
+        //-ms-hyphens: auto;
+        //hyphens: auto;
+    }
+}
+
+.flx_org-btn-50{
+    @include flx_org-btn;
+    width: 50%;
+    margin-left: 5px;
+    margin-right: 5px;
+    p{
+        margin: 0px !important;
+        overflow-wrap: break-word;
+        word-wrap: break-word;
+        -webkit-hyphens: auto;
+        -ms-hyphens: auto;
+        hyphens: auto;
+    }
+}
+
+.flx_org-btn-25{
+    @include flx_org-btn;
+    width: 25%;
+    margin-left: 5px;
+    margin-right: 5px;
+    overflow-wrap: break-word !important;
+        word-wrap: break-word !important;
+        -webkit-hyphens: auto !important;
+        -ms-hyphens: auto !important;
+        hyphens: auto !important;
+    p{
+        margin: 0px !important;
+        
+    }
+}
+
+
+.flx_org-line-1-1{
+    height: 100%;
+    width: 50%;
+    display: flex;
+    position: relative;
+    justify-content: center;
+    &::after{
+        content: "";
+        background-color: var(--theme-contrast-dark-5);
+        width: 4px;
+        height: 6vh;
+        justify-self: center;
+        position: absolute;
+
+    }
+}
+
+.flx_org-line-1-2{
+    height: 100%;
+    width: 50%;
+    border: 4px solid var(--theme-contrast-dark-5);
+    border-bottom: none;
+    justify-content: center;
+    display: flex;
+    position: relative;
+    bottom: -50%;
+
+
+    &::after{
+        content: "";
+        background-color: var(--theme-contrast-dark-5);
+        width: 4px;
+        height: 4vh;
+        justify-self: center;
+        position: absolute;
+        top: -4vh;
+
+ 
+    }
+}
+
+.flx_org-line-1-2-sm{
+    height: 100%;
+    width: 25%;
+    border: 4px solid var(--theme-contrast-dark-5);
+    border-bottom: none;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    bottom: -50%;
+
+    &::after{
+        content: "";
+        background-color: var(--theme-contrast-dark-5);
+        width: 4px;
+        height: 4vh;
+        justify-self: center;
+        position: absolute;
+        top: -4vh;
+
+ 
+    }
+}
+
+
+.flx_org-line-2-1{
+    height: 50%;
+    width: 50%;
+    border: 4px solid var(--theme-contrast-dark-5);
+    border-top: none;
+    justify-self: center;
+    align-self: start;
+    display: flex;
+    justify-content: center;
+    position: relative;
+
+    &::after{
+        content: "";
+        background-color: var(--theme-contrast-dark-5);
+        width: 4px;
+        height: 4vh;
+        justify-self: center;
+        position: absolute;
+        bottom: -4vh;
+
+ 
+    }
+}
+
+
+
+.flx_org-line-1-3{
+    height: 60%;
+    width: 65%;
+    border: 4px solid var(--theme-contrast-dark-5);
+    border-bottom: none;
+    justify-content: center;
+    display: flex;
+    position: relative;
+    margin-top: 40px;
+
+    &::after{
+        content: "";
+        background-color: var(--theme-contrast-dark-5);
+        width: 4px;
+        height: 15vh;
+        top: -4vh;
+        justify-self: center;
+        position: absolute;
+
+ 
+    }
+}
+
+.flx_org-line-2-3{
+    top:2vh;
+    height: 60%;
+    width: 68%;
+    border: 4px solid var(--theme-contrast-dark-5);
+    border-bottom: none;
+    justify-content: center;
+    display: flex;
+    position: relative;
+
+    &::after{
+        content: "";
+        background-color: var(--theme-contrast-dark-5);
+        width: 4px;
+        height: 4vh;
+        top: 0vh;
+        justify-self: center;
+        position: absolute;
+    }
+    &::before{
+        content: "";
+        top:-3vh;
+    height: 100%;
+    width: 76%;
+    border: 4px solid var(--theme-contrast-dark-5);
+    border-bottom: none;
+    border-top: none;
+    justify-content: center;
+    display: flex;
+    position: relative;
+    }
+
+}
+
+.flx_org-line-3-1{
+    height: 50%;
+    width: 68%;
+    border: 4px solid var(--theme-contrast-dark-5);
+    border-top: none;
+    justify-content: center;
+    display: flex;
+    position: relative;
+
+    &::after{
+        content: "";
+        background-color: var(--theme-contrast-dark-5);
+        width: 4px;
+        height: 10vh;
+        top: -3vh;
+        justify-self: center;
+        position: absolute;
+
+ 
+    }
+}
+
+// .stopAnima{
+//     -webkit-animation: none !important;
+//     -ms-animation: none !important;
+//     animation: none !important;
+// }
+
+.animaTouchOrg{
+    display: flex;
+
+    &::before{
+        content: "";
+        width: 55px;
+        height: 80%;
+        background-color: var(--theme-contrast-light-20);
+        position: absolute;
+        animation: touchOrg 2s infinite;
+        transform-origin: center;
+        justify-self: center;
+        opacity: 0.5;
+    }
+
+    @media (max-width: 576px){
+        &::before{
+        width: 60px;
+        height: 50%;
+        }
+        
+    }
+    
+}
+

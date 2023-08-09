@@ -1,0 +1,292 @@
+
+@keyframes pulsarFluxo {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(0.90);
+    }
+}
+
+@-webkit-keyframes pulsarFluxo {
+    from {
+        transform: scale(1);
+    }
+    to {
+        transform: scale(0.90);
+    }
+}
+
+
+
+@keyframes boxOpen {
+    from {
+        transform: scale(0);}
+    to {
+        transform: scale(1);}
+}
+
+@-webkit-keyframes boxOpen {
+    from {
+        transform: scale(0);}
+    to {
+        transform: scale(1);}
+}
+
+@keyframes touchTr{
+    from {
+        border-radius: 30px;
+        //width: 0%;
+        transform: scale3d(0,0,0);
+    }
+    to {
+        border-radius: 130px;
+        //width: 100%;
+        transform: scale3d(1,1,0.1);
+    }
+}
+
+
+.flx_tr-container{
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    margin: 10px;
+    @media (max-width: 575.98px) {
+        height: fit-content;
+    }
+}
+
+
+.flx_tr-col3{
+    height: 100%;
+    width: 33%;
+}
+
+.flx_tr-row-box{
+    display: flex;
+    justify-content: center;
+    width: 100%;
+    height: 20vh;
+    align-items: center;
+    @media (max-width: 575.98px) {
+        height: 25vh;
+    }
+
+}
+
+.flx_tr-row-boxR{
+    display: flex;
+    flex-direction: row-reverse;
+    justify-content: center;
+    width: 100%;
+    height: 20vh;
+    @media (max-width: 575.98px) {
+        height: 25vh;
+    }
+}
+
+.flx_tr-row-lineL{
+    display: flex; 
+    justify-content: flex-start;
+    width: 100%; 
+    height: 7vh;
+}
+
+.flx_tr-row-lineR{
+    display: flex;
+    justify-content: flex-end;
+    width: 100%;
+    height: 7vh;
+}
+
+@mixin flx_tr-box{
+    background-color: white;
+    border: 2px solid var(--theme-contrast-dark-5);
+    border-radius: 10px;
+    z-index: 2;
+    cursor: pointer;
+    transition: all 0.6s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+    text-align:center;
+    overflow-y: auto;
+    overflow-x: hidden;
+    color: white;
+
+    @media (max-width: 575.98px) {
+        width: 100% !important;
+    }
+
+        &:hover{
+            transition: all 0.6s;
+            background-color: var(--theme-contrast-light-40);
+        }
+}
+
+
+.flx_tr-box-default{
+    @include flx_tr-box;
+    background-color: var(--theme-contrast-light-40);
+    border-style: dashed;
+    overflow: hidden;
+    p{
+        visibility: hidden!important;
+        align-self: center;
+        justify-self: center;
+    }
+    h2{
+        visibility: hidden!important;
+        margin: 0px !important;
+    }
+}
+
+.flx_tr-box-ativo{
+    @include flx_tr-box;
+    background-color: var(--theme-contrast-dark-5) !important;
+    overflow-y: auto;
+    animation: boxOpen 0.6s;
+    transition: all 0.5s;
+    p{
+        visibility: visible!important;
+        padding: 3px;
+        text-align: center;
+        margin: 0 !important;
+        text-indent: 0px !important;
+        display: flex;
+        align-self: center;
+        @media (min-width: 567px) and (max-width: 991.98px){
+        font-size: 0.9em !important;}
+    }
+    h2{
+        
+        visibility: visible!important;
+        color: white;
+        margin: 0px !important;
+        align-self: center;
+    }
+}
+
+.flx_tr-btn-inicial {
+    background-color: var(--theme-contrast-dark-10) !important;
+}
+
+.flx_tr-line-dashed{
+    position: relative;
+    display: flex;
+    &:nth-child(2n+1){
+        &::before{
+            content: '';
+            border: dashed var(--theme-contrast-dark-10);
+            width: 0;
+            height: 100%;
+            right:50%;
+            position:absolute;
+        }
+    }
+    &:nth-child(2n){
+        &::before{
+            content: '';
+            border: dashed var(--theme-contrast-dark-10);
+            width: 100%;
+            height: 0%;
+            justify-self:center;
+            align-self: center;
+            position: absolute;
+        }
+    }
+}
+
+.flx_tr-line-ative{
+    position: relative;
+    display: flex;
+    &:nth-child(2n+1){
+        &::before{
+            content: '';
+            border: solid var(--theme-contrast-dark-10) !important;
+            width: 0;
+            height: 100%;
+            right:50%;
+            position:absolute;
+            animation-delay: 0.2s;
+            animation: boxOpen 0.8s;
+            transform-origin: top center;
+        }
+    }
+    &:nth-child(2n){
+        &::before{
+            content: '';
+            border: solid var(--theme-contrast-dark-10) !important;
+            width: 100%;
+            height: 0%;
+            justify-self:center;
+            align-self: center;
+            position: absolute;
+            animation-delay: 0.2s;
+            animation: boxOpen 0.8s;
+            transform-origin: center left;
+        }
+    }
+}
+
+
+.transformRight{
+    &::before{
+        transform-origin: center right !important;
+    }
+    
+}
+
+
+.stopAnimaTr{
+    -webkit-animation: none !important;
+    -ms-animation: none !important;
+    animation: none !important;
+}
+
+.animaTouch{
+    display: flex;
+    &::after{
+        content: "";
+        width: 25%;
+        height: 50%;
+        background-color: var(--theme-contrast-light-35);
+        position: absolute;
+        animation: touchTr 2s  infinite;
+        transform-origin: center;
+        justify-self: center;
+        animation-delay: 0.2s;
+    }
+    &::before{
+        content: "";
+        width: 25%;
+        height: 50%;
+        background-color: var(--theme-contrast-light-40);
+        position: absolute;
+        animation: touchTr 2s infinite;
+        transform-origin: center;
+        justify-self: center;
+    }
+    
+    @media (max-width: 575.98px){
+        &::after{
+            width: 45%;
+        }
+        &::before{
+            width: 45%;
+        }
+    }
+
+}
+
+
+//ScrollBar
+.scrollbar-tr::-webkit-scrollbar{width:8px}
+.scrollbar-tr::-moz-scrollbar{width:8px}
+.scrollbar-tr::-webkit-scrollbar-track{background:var(--theme-contrast-dark-5);border-radius:0px 20px 20px 0px }
+.scrollbar-tr::-moz-scrollbar-track{background:var(--theme-contrast-dark-5);border-radius:0px 20px 20px 0px }
+.scrollbar-tr::-webkit-scrollbar-thumb{background:var(--theme-contrast-light-5);border-radius:20px}
+.scrollbar-tr::-moz-scrollbar-thumb{background:var(--theme-contrast-light-5);border-radius:20px}

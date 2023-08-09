@@ -1,0 +1,361 @@
+$main-theme: #374175;
+$humanas: #8e7cb5;
+$humanas-contrast: #3B9EDB;
+$matematica: #048EAD;
+$start-bg: #e6e6e6;
+$start-contrast: #ffffff;
+:root {
+    --theme: #{$main-theme};
+    --theme-contrast: #38d373;
+    --theme-exploracao: #0066aa;
+    --theme-pensando: #7ca100;
+    --theme-experiencias: #7e00aa;
+    --theme-revisao: #d14071;
+    --start-contrast: #ffffff;
+    --start-star: #fea035;
+    --start-modules: #b59bef;
+    --start-red: #e65d5d;
+    --start-neon: #1eccd9;
+    --start-purple: #800080;
+    --start-exercicios: #41bdf3;
+    --start-green: #0ce076;
+    --start-bg: #e6e6e6;
+    --start-contrast: #ffffff;
+    --start-text-1: #000000; // branco no dark mode
+    --start-text-2: #000000; // cinza claro no dark mode
+    --start-text-3: #9b9b9b; // cinza escuro no dark mode
+    --start-text-4: #ffffff; // cinza escuro no dark mode
+    --start-text-5: #ffffff; // preto no dark mode
+}
+
+html[theme="humanas"] {
+    // --- SASS dark variables🌑 ---
+    $humanas-dark-5: darken($humanas, 5%);
+    $humanas-dark-10: darken($humanas, 10%);
+    $humanas-dark-15: darken($humanas, 15%);
+    $humanas-dark-20: darken($humanas, 20%);
+    $humanas-dark-25: darken($humanas, 25%);
+    $humanas-dark-30: darken($humanas, 30%);
+    $humanas-dark-35: darken($humanas, 35%);
+    $humanas-dark-40: darken($humanas, 40%);
+    $humanas-contrast-dark-5: darken($humanas-contrast, 5%);
+    $humanas-contrast-dark-10: darken($humanas-contrast, 10%);
+    $humanas-contrast-dark-15: darken($humanas-contrast, 15%);
+    $humanas-contrast-dark-20: darken($humanas-contrast, 20%);
+    $humanas-contrast-dark-25: darken($humanas-contrast, 25%);
+    $humanas-contrast-dark-30: darken($humanas-contrast, 30%);
+    $humanas-contrast-dark-35: darken($humanas-contrast, 35%);
+    $humanas-contrast-dark-40: darken($humanas-contrast, 40%);
+    // --- SASS light variables🌞 ---
+    $humanas-light-5: lighten($humanas, 5%);
+    $humanas-light-10: lighten($humanas, 10%);
+    $humanas-light-15: lighten($humanas, 15%);
+    $humanas-light-20: lighten($humanas, 20%);
+    $humanas-light-25: lighten($humanas, 25%);
+    $humanas-light-30: lighten($humanas, 30%);
+    $humanas-light-35: lighten($humanas, 35%);
+    $humanas-light-40: lighten($humanas, 40%);
+    $humanas-contrast-light-5: lighten($humanas-contrast, 5%);
+    $humanas-contrast-light-10: lighten($humanas-contrast, 10%);
+    $humanas-contrast-light-15: lighten($humanas-contrast, 15%);
+    $humanas-contrast-light-20: lighten($humanas-contrast, 20%);
+    $humanas-contrast-light-25: lighten($humanas-contrast, 25%);
+    $humanas-contrast-light-30: lighten($humanas-contrast, 30%);
+    $humanas-contrast-light-35: lighten($humanas-contrast, 35%);
+    $humanas-contrast-light-40: lighten($humanas-contrast, 40%);
+    // --- CSS dark variables 🌑 ---
+    --theme-dark-5: #{$humanas-dark-5};
+    --theme-dark-10: #{$humanas-dark-10};
+    --theme-dark-15: #{$humanas-dark-15};
+    --theme-dark-20: #{$humanas-dark-20};
+    --theme-dark-25: #{$humanas-dark-25};
+    --theme-dark-30: #{$humanas-dark-30};
+    --theme-dark-35: #{$humanas-dark-35};
+    --theme-dark-40: #{$humanas-dark-40};
+    --theme: #{$humanas}; // cor tema principal
+    // --- CSS light variables🌞 ---
+    --theme-light-5: #{$humanas-light-5};
+    --theme-light-10: #{$humanas-light-10};
+    --theme-light-15: #{$humanas-light-15};
+    --theme-light-20: #{$humanas-light-20};
+    --theme-light-25: #{$humanas-light-25};
+    --theme-light-30: #{$humanas-light-30};
+    --theme-light-35: #{$humanas-light-35};
+    --theme-light-40: #{$humanas-light-40};
+    // --- CSS constrast color - dark
+    --theme-contrast-dark-5: #{$humanas-contrast-dark-5};
+    --theme-contrast-dark-10: #{$humanas-contrast-dark-10};
+    --theme-contrast-dark-15: #{$humanas-contrast-dark-15};
+    --theme-contrast-dark-20: #{$humanas-contrast-dark-20};
+    --theme-contrast-dark-25: #{$humanas-contrast-dark-25};
+    --theme-contrast-dark-30: #{$humanas-contrast-dark-30};
+    --theme-contrast-dark-35: #{$humanas-contrast-dark-35};
+    --theme-contrast-dark-40: #{$humanas-contrast-dark-40};
+    --theme-contrast: #{$humanas-contrast}; // cor contraste principal
+    // --- CSS constrast color - dark
+    --theme-contrast-light-5: #{$humanas-contrast-light-5};
+    --theme-contrast-light-10: #{$humanas-contrast-light-10};
+    --theme-contrast-light-15: #{$humanas-contrast-light-15};
+    --theme-contrast-light-20: #{$humanas-contrast-light-20};
+    --theme-contrast-light-25: #{$humanas-contrast-light-25};
+    --theme-contrast-light-30: #{$humanas-contrast-light-30};
+    --theme-contrast-light-35: #{$humanas-contrast-light-35};
+    --theme-contrast-light-40: #{$humanas-contrast-light-40};
+}
+
+// $start-white: #fff;
+// $start-text-1: #000;
+// $start-text-2: #000000;
+// $start-text-3: rgb(155, 155, 155);
+// $start-neon: #1ECCD9;
+// $start-neon-inverse: #ffffff;
+// $main-dark-5: darken($start-main, 5%);
+// $main-dark-10: darken(#374175, 10%);
+// $main-dark-15: darken(#374175, 15%);
+// $main-dark-20: darken(#374175, 20%);
+// $main-light-5: lighten(#374175, 5%);
+// $main-light-10: lighten(#374175, 10%);
+// $main-light-15: lighten(#374175, 15%);
+// $main-light-20: lighten(#374175, 20%);
+// $main-light-30: lighten(#374175, 30%);
+// $main-light-45: lighten(#374175, 45%);
+// $start-dark: darken($start-main, 10%);
+// $score-modules: #B59BEF;
+// $score-modules-inverse: #ece3ff;
+// $score-exercicios:#41BDF3;
+// $score-exercicios-inverse: #d1f1ff;
+// $score-exercicios-bg: #d1f1ff;
+// $score-exercicios-result: lighten($score-exercicios, 26%);
+// $score-star: #FEA035;
+// $score-star-inverse: #ffd6a7;
+// $start-red: #e65d5d;
+// $start-green: #91f8ab;
+// $start-green-bg: #ccffe2;
+// $start-flash-cards: #376B82;
+// $start-flash-cards-sombra: darken(#376B82, 15%);
+html {
+    --btn-tool-note: #ffd09a;
+    --btn-tool-save: #5bdfe8;
+    --btn-tools: #4f5ea9;
+    // --start-main: #{--start-theme};
+    --main-dark-5: #2f3764;
+    --main-dark-10: #272e52;
+    --main-dark-15: #1f2441;
+    --main-dark-20: #161a30;
+    --main-light-5: #3f4b86;
+    --main-light-10: #475498;
+    --main-light-15: #4f5ea9;
+    --main-light-20: #5e6cb4;
+    --main-light-30: #818cc4;
+    --main-light-45: #b5bcdc;
+    --main-light-60: #d4d7e6;
+    --start-bg: #e6e6e6;
+    --start-bg-dark-10: #d3d0d0;
+    --start-bg-dark-20: #bdbaba;
+    --start-bg-dark-30: #bdb9b9;
+    --start-bg-dark-40: #aaa9a9;
+    --start-grey: #c5c5c5;
+    --start-white: #ffffff;
+    --start-text-1: #000000;
+    --start-text-2: #000000;
+    --start-text-3: #9b9b9b;
+    --start-modules: #b59bef;
+    --start-modules-inverse: #ece3ff;
+    --start-modules-dark-10: #a991dd;
+    --start-modules-dark-15: #a081e0;
+    --start-exercicios: #41bdf3;
+    --start-exercicios-light-10: #59c0ec;
+    --start-exercicios-dark-10: #41b3e4;
+    --start-exercicios-inverse: #d1f1ff;
+    --start-exercicios-bg: #d1f1ff;
+    --start-exercicios-result: #bee8fb;
+    --start-star: #fea035;
+    --start-star-light-5: #faa646;
+    --start-star-light-10: #f8ab52;
+    --start-star-light-20: #f3b062;
+    --start-star-light-30: #fabf7b;
+    --start-star-dark-10: #ee9733;
+    --start-star-dark-15: #e79230;
+    --start-star-inverse: #ffd6a7;
+    --start-red: #e65d5d;
+    --start-red-light-5: #e06868;
+    --start-red-light-10: #dd6b6b;
+    --start-red-light-20: #dd7878;
+    --start-red-light-30: #dd8282;
+    --start-green-bg: #ccffe2;
+    --start-neon: #1eccd9;
+    --start-neon-light-40: #3fccd6;
+    --start-neon-light-20: #4fe2ec;
+    --start-neon-dark-10: #1dc2ce;
+    --start-neon-dark-20: #1eb4be;
+    --start-neon-inverse: #ffffff;
+    --start-int: #374175;
+    --start-neon-inverse: #ffffff;
+    --start-int: #374175;
+    --start-neon-inverse: #ffffff;
+    --start-int: #374175;
+    --start-red: #e65d5d;
+    --start-red-inverse: #fcdfdf;
+    --start-red-bg: #ffefef;
+    --start-green: #0ce076;
+    --start-green-inverse: #a6ffd8;
+    --start-green-bg2: #a6ffd8;
+    --start-green-save: #e1fff2;
+    --start-green-bg-question: #16bb73;
+    --start-green-bg-dark-question: #15a868;
+    --start-teste-bg: #1293cc;
+    --start-int-fc: #376b82;
+    --start-shd-fc: #203f4c;
+    --start-hvr-fc: #315f74;
+}
+
+html[start-theme="dark"] {
+    --start-main: #1a1a1a;
+    --start-bg: #2b2b2b;
+    --start-white: #3f3f3f;
+    --start-text-1: #ffffff;
+    --start-text-2: #b9b9b9;
+    --start-text-3: #222222;
+    --main-dark-5: #161616;
+    --main-dark-10: #111111;
+    --main-dark-20: #0a0a0a;
+    --main-light-5: #1d1d1d;
+    --main-light-10: #252525;
+    --main-light-15: #303030;
+    --main-light-20: #3f3f3f;
+    --main-light-30: #5a5a5a;
+    --main-light-45: #505050;
+    --main-light-60: #303030;
+    --start-modules: #111111;
+    --start-modules-inverse: #b59bef;
+    --start-exercicios: #111111;
+    --start-exercicios-inverse: #41bdf3;
+    --start-exercicios-bg: #3f3f3f;
+    --start-exercicios-result: #0080af;
+    --start-star: #111111;
+    --start-star-inverse: #fea035;
+    --start-green-bg: #7e817e;
+    --start-neon: #111111;
+    --start-neon-inverse: #1eccd9;
+    --start-neon-light-20: #27a3ac;
+    --start-int: #797979;
+    --start-red: #111111;
+    --start-red-inverse: #e65d5d;
+    --start-red-bg: #4b4b4b;
+    --start-green: #111111;
+    --start-green-inverse: #0ce076;
+    --start-green-bg2: #afeaaf;
+    --start-green-bg-question: #14593b;
+    --start-green-save: #242424;
+    --start-grey: #202020;
+    --btn-tool-note: #111111;
+    --btn-tool-save: #111111;
+    --btn-tools: #111111;
+    --start-teste-bg: #303030;
+    --start-text-color-dark: #8da7fd;
+    --start-shd-fc: #303030;
+    .exercicio-btn-confirm {
+        border: 1px solid #7c7c7c;
+    }
+    .lp-pieces {
+        border: 2px solid white;
+        &::after {
+            box-shadow: -13px 0px 0px 5px #5a5a5a, 0 0 0 2px;
+        }
+    }
+    .save-item {
+        border: 1px solid var(--start-green-bg2);
+    }
+    .amp-default-skin .vjs-poster img {
+        filter: grayscale(1);
+    }
+    .exCover {
+        background-blend-mode: luminosity;
+    }
+    .table-titulo {
+        background-color: var(--main-light-10);
+    }
+    figure figcaption {
+        color: white;
+    }
+    .flx_cas_btn-ativo {
+        h3 {
+            color: white;
+        }
+    }
+    .dot-active {
+        background-color: var(--start-text-2);
+    }
+    .slideShow {
+        figure {
+            a {
+                color: white;
+                &::before {
+                    color: white;
+                }
+            }
+            figcaption {
+                color: white;
+            }
+        }
+    }
+    .menu-info_modules {
+        color: var(--start-text-2);
+    }
+    .menu-info_exercicios {
+        color: var(--start-text-2);
+    }
+    .menu-info_stars {
+        color: var(--start-text-2);
+    }
+    .question-complete-ex .true p {
+        color: black;
+    }
+    .flx_tr-box-ativo h2 {
+        color: white;
+    }
+    .flx_org-btn-ativo h3 {
+        color: white;
+    }
+    .flx_org-btn-ativo {
+        color: white;
+        &:hover {
+            color: white !important;
+        }
+    }
+    .home-info h1 {
+        color: var(--start-text-color-dark);
+    }
+    .home-btn-scroll {
+        color: var(--start-text-color-dark);
+        &::after {
+            background-color: var(--start-text-color-dark);
+        }
+    }
+    .btn-expand {
+        background-color: var(--start-text-color-dark);
+        p {
+            color: var(--main-light-10);
+        }
+    }
+    .tl-icon {
+        background-color: var(--start-text-color-dark);
+    }
+    .tl-title1 {
+        color: var(--start-text-color-dark);
+        &::after {
+            color: var(--start-text-color-dark);
+        }
+    }
+    .tl-title2 {
+        color: var(--start-text-color-dark);
+        &::after {
+            color: var(--start-text-color-dark);
+        }
+    }
+    .stopAnimaTl {
+        &::before {
+            background-color: var(--start-int);
+        }
+    }
+}

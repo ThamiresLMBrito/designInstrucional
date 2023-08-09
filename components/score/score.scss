@@ -1,0 +1,141 @@
+.score{
+    height: 20vh;
+    width: 100%;
+    background-color: var(--start-main);
+    display: flex;
+    justify-content: center;
+    position: relative;
+    user-select: none;
+    @media screen and (min-width: 1921px){
+        width: 50.3%;
+        margin-top: 1%;       
+    }
+}
+
+
+@mixin scoreItens($color) {
+    height: 130%;
+    width: 12%;
+    background-color: $color;
+    border-radius: 15px;
+    margin: 3% 2% -100% 2%;
+    padding: 10px;
+    user-select: none;
+    
+
+
+    @media screen and (max-width: 768px) {
+        width: 32%;
+        height: 100%;
+
+    
+    }
+
+    @media (max-width: 1024px) and (min-width: 769px) {
+        width: 20%;
+        height: 100%;
+    }
+
+
+
+}
+
+@mixin scoreIcon($color) {
+    width: 100%;
+    height: 70%;
+    display: flex;
+    align-items: flex-end;
+    justify-content: center;
+    font-weight: 600;
+    color: $color;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-end;
+    user-select: none;
+
+
+    i{
+        font-size: 3em;
+        margin-bottom: 18px;
+
+        @media screen and (max-width: 768px){
+            margin-bottom: 10px;
+        }
+    }
+    p{
+        font-size: 1.3em;
+    }
+}
+
+
+@mixin scoreText($color) {
+    width: 100%;
+    height: 30%;
+    font-size: 2.5em;
+    font-weight: 700;
+    color: $color;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-top: 1px solid $color;
+    user-select: none;
+
+    @media screen and (max-width: 768px) {
+        font-size: 2em;
+    }
+}
+
+.score-modules{
+    @include scoreItens(#{var(--start-modules)});
+   
+    @media screen and (min-width: 1921px){
+        width: 20%;
+    }
+
+    .score-icon{
+        @include scoreIcon(#{var(--start-modules-inverse)});
+    }
+    .score-text{
+        @include scoreText(#{var(--start-modules-inverse)});
+    }
+
+
+}
+
+.score-exercicios{
+    @include scoreItens(#{var(--start-exercicios)});
+    
+    @media screen and (min-width: 1921px){
+        width: 20%;
+    }
+
+    .score-icon{
+        @include scoreIcon(#{var(--start-exercicios-inverse)});
+        i{
+            margin-left: 10px;
+        }
+    }
+    .score-text{
+        @include scoreText(#{var(--start-exercicios-inverse)});
+    }
+}
+
+.score-stars{
+    @include scoreItens(#{var(--start-star)});
+
+    @media screen and (min-width: 1921px){
+        width: 20%;
+    }
+
+    .score-icon{
+        @include scoreIcon(#{var(--start-star-inverse)});
+    }
+    .score-text{
+        @include scoreText(#{var(--start-star-inverse)});
+    }
+
+
+    
+}
+
+

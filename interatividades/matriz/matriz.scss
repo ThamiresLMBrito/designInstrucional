@@ -1,0 +1,289 @@
+.matriz-container {
+    // border: 1px solid red;
+    width: 100%;
+    height: 70vh;
+    display: flex;
+    justify-content: space-around;
+    margin-bottom: 0.4em;
+    margin-top: 0.4em;
+    @media screen and (max-width: 768px) {
+        height: 40vh;
+    }
+    .mtz-disable {
+        visibility: hidden;
+    }
+    .mtz-visible {
+        display: flex!important;
+    }
+    @mixin cols {
+        width: 33%;
+        height: 100%;
+        display: flex;
+        flex-direction: column;
+        justify-content: space-around;
+
+        .matriz-row {
+            height: 18%;
+            width: 100%;
+            background-color: var(--theme-contrast-light-30);
+            border-radius: 10px;
+            display: none;
+            justify-content: center;
+            align-items: center;
+            position: relative;
+            padding: 3px;
+
+            @media screen and (max-width: 1920px) and (min-width: 769px) {
+                height: 15%;
+            }
+            
+
+            img {
+                height: 90%;
+                width: auto;
+            }
+
+            p{
+                position: absolute;
+                top: 0;
+                left: 0;
+                width: 95%;
+                height: 77%;
+                overflow-y: auto;
+                word-break: break-word;
+                font-size: 1em;
+                padding: 3px;
+                text-indent: 0;
+                text-align: center;
+            }
+
+
+        }
+    }
+    .matriz-col-center {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+    }
+    .mtz-ball-center {
+        height: 23vw;
+        width: 23vw;
+        border-radius: 25vw;
+        background-color: var(--theme-contrast-dark-10);
+        z-index: 1;
+        cursor: pointer;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2em;
+        color: white;
+        text-align: center;
+        user-select: none;
+        position: relative;
+        word-break: break-word;
+        
+        &::after {
+            content: '';
+            width: 100%;
+            height: 100%;
+            border-radius: 1000px;
+            border: 2px solid var(--theme-contrast);
+            position: absolute;
+            opacity: 0;
+            transition: all 0.4s;
+        }
+        @media screen and (max-width: 768px) {
+            height: 35vw;
+            width: 35vw;
+            font-size: 1em;
+        }
+
+        @media screen and (max-width: 1920px) and (min-width: 769px) {
+            font-size: 1.5em;
+        }
+
+        @media screen and (min-width: 1921px) { 
+            height: 15vw;
+            width: 15vw;
+            font-size: 1.5em;
+        }
+    }
+    .pulse {
+        animation: pulse 1s alternate infinite;
+        &::after {
+            width: 130%;
+            height: 130%;
+            transition: all 0.4s;
+            opacity: 1;
+        }
+    }
+    .matriz-col-L {
+        position: relative;
+        @include cols();
+        .matriz-row {
+            &:nth-child(1) {
+                animation: openMtzInverted 0.6s both;
+                .matriz-line {
+                    width: 40%;
+                    height: 110%;
+                    position: absolute;
+                    border: none;
+                    border-top: 2px dashed var(--main-light-30);
+                    border-right: 2px dashed var(--main-light-30);
+                    right: -40%;
+                    bottom: -60%;
+                    animation: pathInverted 0.6s both;
+                }
+            }
+            &:nth-child(2) {
+                animation: openMtzInverted 0.6s both;
+                animation-delay: 0.2s;
+                .matriz-line {
+                    width: 40%;
+                    height: 40%;
+                    position: absolute;
+                    border: none;
+                    border-top: 2px dashed var(--main-light-30);
+                    border-right: 2px dashed var(--main-light-30);
+                    right: -40%;
+                    bottom: 10%;
+                    animation: pathInverted 0.6s both;
+                    animation-delay: 0.2s;
+                }
+            }
+            &:nth-child(3) {
+                animation: openMtzInverted 0.6s both;
+                animation-delay: 0.4s;
+                .matriz-line {
+                    align-items: center;
+                    transform-origin: center right;
+                    width: 40%;
+                    height: 2px;
+                    position: absolute;
+                    border: none;
+                    border-top: 2px dashed var(--main-light-30);
+                    right: -40%;
+                    animation: pathInverted 0.6s both;
+                    animation-delay: 0.4s;
+                }
+            }
+            &:nth-child(4) {
+                animation: openMtzInverted 0.6s both;
+                animation-delay: 0.6s;
+                .matriz-line {
+                    transform-origin: center right;
+                    width: 40%;
+                    height: 40%;
+                    position: absolute;
+                    border: none;
+                    border-bottom: 2px dashed var(--main-light-30);
+                    border-right: 2px dashed var(--main-light-30);
+                    right: -40%;
+                    top: 10%;
+                    animation: pathInverted 0.6s both;
+                    animation-delay: 0.6s;
+                }
+            }
+            &:nth-child(5) {
+                animation: openMtzInverted 0.6s both;
+                animation-delay: 0.8s;
+                .matriz-line {
+                    transform-origin: center right;
+                    width: 40%;
+                    height: 110%;
+                    position: absolute;
+                    border: none;
+                    border-bottom: 2px dashed var(--main-light-30);
+                    border-right: 2px dashed var(--main-light-30);
+                    right: -40%;
+                    top: -60%;
+                    animation: pathInverted 0.6s both;
+                    animation-delay: 0.8s;
+                }
+            }
+        }
+    }
+    .matriz-col-R {
+        position: relative;
+        @include cols();
+        .matriz-row {
+            &:nth-child(1) {
+                animation: openMtz 0.6s both;
+                .matriz-line {
+                    width: 40%;
+                    height: 110%;
+                    position: absolute;
+                    border: none;
+                    border-top: 2px dashed var(--main-light-30);
+                    border-left: 2px dashed var(--main-light-30);
+                    left: -40%;
+                    bottom: -60%;
+                    animation: path 0.6s both;
+                }
+            }
+            &:nth-child(2) {
+                animation: openMtz 0.6s both;
+                animation-delay: 0.2s;
+                .matriz-line {
+                    width: 40%;
+                    height: 40%;
+                    position: absolute;
+                    border: none;
+                    border-top: 2px dashed var(--main-light-30);
+                    border-left: 2px dashed var(--main-light-30);
+                    left: -40%;
+                    bottom: 10%;
+                    animation: path 0.6s both;
+                    animation-delay: 0.2s;
+                }
+            }
+            &:nth-child(3) {
+                animation: openMtz 0.6s both;
+                animation-delay: 0.4s;
+                .matriz-line {
+                    align-items: center;
+                    width: 40%;
+                    height: 2px;
+                    position: absolute;
+                    border: none;
+                    border-top: 2px dashed var(--main-light-30);
+                    left: -40%;
+                    animation: path 0.6s both;
+                    animation-delay: 0.4s;
+                }
+            }
+            &:nth-child(4) {
+                animation: openMtz 0.6s both;
+                animation-delay: 0.6s;
+                .matriz-line {
+                    width: 40%;
+                    height: 40%;
+                    position: absolute;
+                    border: none;
+                    border-bottom: 2px dashed var(--main-light-30);
+                    border-left: 2px dashed var(--main-light-30);
+                    left: -40%;
+                    top: 10%;
+                    animation: path 0.6s both;
+                    animation-delay: 0.6s;
+                }
+            }
+            &:nth-child(5) {
+                animation: openMtz 0.6s both;
+                animation-delay: 0.8s;
+                .matriz-line {
+                    width: 40%;
+                    height: 110%;
+                    position: absolute;
+                    border: none;
+                    border-bottom: 2px dashed var(--main-light-30);
+                    border-left: 2px dashed var(--main-light-30);
+                    left: -40%;
+                    top: -60%;
+                    animation: path 0.6s both;
+                    animation-delay: 0.8s;
+                }
+            }
+        }
+    }
+}

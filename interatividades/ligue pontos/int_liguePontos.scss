@@ -1,0 +1,503 @@
+$cor--main: #8da7fd;
+$cor--light: #eff2ff;
+
+
+
+@keyframes lpBgClip {
+    from {
+
+        clip-path: inset(0 100% 0 0);
+        -webkit-clip-path: inset(0 100% 0 0);
+    }
+    to {
+
+        clip-path: inset(0 0 0 0);
+        -webkit-clip-path: inset(0 0 0 0);
+    }
+}
+@keyframes lpTrueLight {
+    0% {
+        background-color: $cor--light;
+        border: 5px solid $cor--main;
+        transform: scale(1);
+        right: -10px;
+    }
+    50% {
+        background-color: $cor--light;
+        border: 10px solid $cor--main;
+        transform: scale(0.8);
+        right: -12px;
+    }
+    100% {
+        background-color: greenyellow;
+        border: 5px solid rgb(30, 201, 121);
+        transform: scale(1);
+        right: -10px;
+    }
+}
+@-webkit-keyframes lpTrueLight {
+    0% {
+        background-color: $cor--light;
+        border: 5px solid $cor--main;
+        transform: scale(1);
+        right: -10px;
+    }
+    50% {
+        background-color: $cor--light;
+        border: 10px solid $cor--main;
+        transform: scale(0.8);
+        right: -12px;
+    }
+    100% {
+        background-color: greenyellow;
+        border: 5px solid rgb(30, 201, 121);
+        transform: scale(1);
+        right: -10px;
+    }
+}
+
+@keyframes lpTrueBG {
+    0% {
+        background-color: $cor--main;
+    }
+    to {
+        background-color: rgb(30, 201, 121);
+    }
+}
+
+@keyframes lpDropTrue {
+    from {
+        background-color: darken($cor--light, 5%);
+    }
+    to {
+        background-color: #c0ffd9;
+        color: black;
+    }
+}
+
+@keyframes lpFalseLight {
+    0% {
+        background-color: $cor--light;
+        border: 5px solid $cor--main;
+        transform-origin: center;
+        -webkit-transform-origin: center;
+        transform: scale(1);
+        height: 20px;
+        right: -10px;
+        width: 20px;
+
+    }
+    50% {
+        background-color: $cor--light;
+        border: 6px solid $cor--main;
+        transform-origin: center;
+        -webkit-transform-origin: center;
+        transform: scale(0.8);
+        -webkit-transform: scale(0.8);
+        height: 25px;
+        right: -10px;
+        width: 16px;
+
+    }
+    100% {
+        background-color: rgb(236, 57, 57);
+        border: 7px solid rgb(230, 148, 148);
+        transform-origin: center;
+        -webkit-transform-origin: center;
+        transform: rotate(90deg);
+        height: 25px;
+        right: -10px;
+        width: 20px;
+
+    }
+}
+@-webkit-keyframes lpFalseLight {
+    0% {
+        background-color: $cor--light;
+        border: 5px solid $cor--main;
+        transform: scale(1);
+        -webkit-transform: scale(1);
+        height: 20px;
+        right: -10px;
+        width: 20px;
+
+    }
+    50% {
+        background-color: $cor--light;
+        border: 6px solid $cor--main;
+        transform: scale(0.8);
+        -webkit-transform: scale(0.8);
+        height: 25px;
+        right: -10px;
+        width: 16px;
+
+    }
+    100% {
+        background-color: rgb(236, 57, 57);
+        border: 7px solid rgb(230, 148, 148);
+        transform: rotate(90deg);
+        -webkit-transform: rotate(90deg);
+        height: 25px;
+        right: -10px;
+        width: 20px;
+
+    }
+}
+@keyframes lpFalseBG {
+    0% {
+        background-color: $cor--main;
+    }
+    100% {
+        background-color: rgb(230, 148, 148);
+    }
+}
+
+@keyframes lpDropFalse {
+    from {
+        background-color: darken($cor--light, 5%);
+    }
+    to {
+        background-color: rgb(255, 235, 235);
+        color: black;
+    }
+}
+
+
+.lp-container {
+    height: fit-content;
+    position: relative;
+    width: 100%;
+}
+
+.lp-row {
+    position: relative;
+    display: flex;
+    -webkit-display: flex;
+    border-radius: 10px;
+    align-content: center;
+    justify-content: space-between;
+    // background-color: var(--theme-contrast-light-35);
+
+    @media screen and (max-width: 768px) {
+        justify-content: start;
+        width: 100%;
+        overflow-x: auto;
+    }
+
+}
+
+.lp-col-drop {
+    width: 60%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+
+    @media screen and (max-width: 768px) {
+        width: 60%;
+        margin-left: 17%;
+        right: 0;
+    }
+}
+
+.lp-drop {
+    margin: 5px 5px 5px 0px;
+    padding: 3px 3px 5px 35px;
+    height: 8.7vh;
+    border-radius: 10px;
+    display: flex;
+    -webkit-display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--theme-contrast-light-30);
+    font-size: 0.65em;
+    font-weight: 600;
+    font-family: Arial, Helvetica, sans-serif;
+    position: relative;
+
+    p{
+            height: 100%;
+            overflow: auto;
+            line-height: 1.5em;
+            margin: 0!important;
+            text-indent: 0!important;
+            font-size: 1.2em;
+            
+
+
+    }
+    &::after {
+        content: "";
+        width: 20px;
+        height: 20px;
+        border-radius: 30px;
+        background-color: var(--start-white);
+        position: absolute;
+        left: -10px;
+
+        @media screen and (max-width: 768px) {
+            width: 15px;
+            height: 15px;
+            left: -7px;
+            
+        }
+    }
+
+    &::before {
+        content: "";
+        width: 25px;
+        height: 100%;
+        border-radius: 10px 0px 0px 10px;
+        // background-color: darken($cor--light, 8%);
+        background-image: linear-gradient(transparent 50%, rgba(40, 41, 104, 0.1) 0%);
+        background-size: 50px 10px;
+        position: absolute;
+        left: 0px;
+        top: 0;
+
+        @media screen and (max-width: 768px) {
+            width: 14px;
+            
+        }
+    }
+
+    @media screen and (max-width: 768px) {
+        font-size: 0.8em;
+        
+    }
+}
+
+.lp-col-drag {
+    width: 20%;
+    display: flex;
+    flex-direction: column;
+    justify-content: space-evenly;
+    background-color: var(--theme-contrast-light-20);
+    border-radius: 10px;
+
+    @media screen and (max-width: 768px) {
+        width: 30%;
+    }
+}
+
+.lp-pieces {
+    width: 75%;
+    height: 8.5vh;
+    margin: 5px 0px 5px 5px;
+    padding: 2px;
+    text-align: center;
+    border-radius: 7px;
+    background-color: var(--theme-contrast);
+    color: white;
+    font-size: 1em;
+    font-weight: 700;
+    font-family: Arial, Helvetica, sans-serif;
+    position: relative;
+    display: flex;
+    -webkit-display: flex;
+    align-items: center;
+    justify-content: center;
+
+    &::after {
+        content: "";
+        width: 15px;
+        height: 25px;
+        border-radius: 0 25px 25px 0;
+        background-color: var(--theme-contrast);
+        position: absolute;
+        right: -15px;
+        
+    }
+
+    &::before {
+        content: "";
+        width: 13px;
+        height: 13px;
+        border-radius: 20px;
+        background-color: #fff;
+        position: absolute;
+        right: -10px;
+        z-index: 1;
+    }
+
+}
+
+
+.lp-dropped {
+    position: absolute;
+    left: -24.9%;
+    top: -6px;
+    width: 25%;
+    height: 100%;
+    margin: 5px 0px 5px 5px;
+    // padding: 1px;
+    border-radius: 7px;
+    background-color: $cor--main;
+    color: rgb(255, 255, 255);
+    font-size: 1.5em;
+    font-weight: 700;
+    font-family: Arial, Helvetica, sans-serif;
+    text-align: center;
+    display: flex;
+    -webkit-display: flex;
+    align-items: center;
+    -webkit-align-items: center;
+    justify-content: center;
+    -webkit-justify-content: center;
+    z-index: 1;
+
+    &::after {
+        content: "";
+        width: 20px;
+        height: 20px;
+        border-radius: 25px;
+        background-color: $cor--light;
+        position: absolute;
+        right: -10px;
+    }
+
+
+
+    @media screen and (max-width: 768px) {
+
+        width: 40%;
+        left: -32.5%;
+
+    }
+}
+
+.lp-true {
+    color: rgb(255, 255, 255);
+
+    &::after {
+        animation: lpTrueLight 0.6s forwards;
+        animation-delay: 0.4s;
+        border: 5px solid $cor--main;
+
+        @media screen and (max-width: 768px) {
+            animation-delay: 0.3s;
+        }
+    }
+
+    &::before {
+        content: "";
+        width: 100%;
+        height: 100%;
+        border-radius: 7px;
+        position: absolute;
+        background-color: rgb(30, 201, 121);
+        animation: lpBgClip 1s forwards;
+        z-index: -1;
+    }
+}
+
+.lp-drop-true {
+    animation: lpDropTrue 1s forwards;
+    animation-delay: 1s;
+
+    &::before {
+        background-color: rgb(74, 153, 129);
+        transition: background-color 1s;
+    }
+
+    @media screen and (max-width: 768px) {
+        animation-delay: 0.7s;
+    }
+}
+
+//---------------------------------------------------
+
+.lp-false {
+    color: rgb(116, 54, 62);
+
+
+    &::after {
+        animation: lpFalseLight 0.6s forwards;
+        animation-delay: 0.4s;
+        z-index: 1;
+        border: 5px solid $cor--main;
+        transform-origin: center;
+        -webkit-transform-origin: center;
+
+        @media screen and (max-width: 768px) {
+            animation-delay: 0.3s;
+        }
+    }
+
+    &::before {
+        content: "";
+        width: 100%;
+        height: 100%;
+        border-radius: 7px;
+        position: absolute;
+        background-color: rgb(230, 148, 148);
+        animation: lpBgClip 1s forwards;
+        z-index: -1;
+
+    }
+}
+
+.lp-drop-false {
+    animation: lpDropFalse 1s forwards;
+    animation-delay: 1s;
+
+    &::before {
+        background-color: rgb(221, 109, 109);
+        transition: background-color 1s;
+    }
+
+    @media screen and (max-width: 768px) {
+        animation-delay: 0.5s;
+    }
+}
+
+.lp-tuto {
+    width: 100%;
+    height: 100%;
+    background-color: rgba($color: #000000, $alpha: 0.3);
+    position: absolute;
+    z-index: 1;
+    display: none;
+    justify-content: center;
+    align-items: center;
+
+    &::after {
+        content: "";
+        width: 18vw;
+        height: 18vw;
+        border-radius: 18vw;
+        background-color: rgba($color: #000000, $alpha: 0.4);
+        position: absolute;
+        align-self: center;
+        justify-self: center;
+        cursor: pointer;
+
+        @media screen and (max-width: 768px) {
+            width: 150px;
+            height: 150px;
+            border-radius: 150px;
+        }
+    }
+
+    &::before {
+        content: "";
+        width: 120px;
+        height: 150px;
+        background-color: rgba($color: #ffffff, $alpha: 0.5);
+        clip-path: polygon(0 0, 0% 100%, 100% 50%);
+        -webkit-clip-path: polygon(0 0, 0% 100%, 100% 50%);
+        position: absolute;
+        align-self: center;
+        justify-self: center;
+        margin-left: 2%;
+
+        @media screen and (max-width: 768px) {
+            width: 80px;
+            height: 100px;
+            margin-left: 5%;
+        }
+    }
+
+    @media screen and (max-width: 768px) {
+        display: flex;
+    }
+}

@@ -1,0 +1,185 @@
+.btn-info-active {
+    width: 80% !important;
+    min-height: 20vh !important;
+    flex-direction: column;
+    transition: all 0.6s;
+    @media screen and (max-width: 767px) {
+        //width: 90%;
+        min-height: 10vh;
+    }
+    .btn-txtbox {
+        width: 83%;
+        color: white;
+        margin: 10px;
+        display: flex !important;
+        flex-direction: column;
+        align-items: center;
+        p {
+            text-align: center;
+            align-self: center;
+            hyphens: none;
+
+        }
+        figcaption {
+            color: white;
+        }
+    }
+    .btn-icon {
+        right: -6vh !important;
+        transition: all 0.6s;
+        @media screen and (max-width: 767px) {
+            top: -4vh !important;
+        }
+        @media screen and (min-width: 768px) and (max-width: 1024px) {
+            right: -4vh!important;
+        }
+        &::after {
+            left: auto;
+            top: 25%;
+        }
+        &::before {
+            transform: rotate(-90deg);
+            left: 25% !important;
+            bottom: -45%;
+        }
+    }
+}
+
+@mixin btn-info {
+    width: 30%;
+    min-height: 15vh;
+    height: fit-content;
+    position: relative;
+    border-radius: 20px;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    transition: all 0.6s;
+    cursor: pointer;
+    margin-bottom: 1em;
+    margin-top: 0.4em;
+    @media screen and (max-width: 767px) {
+        width: 90%;
+        min-height: 10vh;
+    }
+    @media screen and (min-width: 768px) and (max-width: 1024px) {
+        width: 50vw;
+        min-height: 10vh;
+    }
+
+
+    .btn-title {
+        color: white;
+        display: flex;
+        align-self: center;
+        margin: 10px;
+    }
+    .btn-txtbox {
+        display: none;
+    }
+    .btn-icon {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        position: absolute;
+        width: 15vh;
+        height: 15vh;
+        border-radius: 300px;
+        filter: brightness(0.9);
+        right: -4vh;
+        top: 0;
+        transition: all 0.6s;
+        @media screen and (max-width: 767px) {
+            width: 10vh;
+            height: 10vh;
+            right: -3vh !important;
+        }
+        @media screen and (min-width: 768px) and (max-width: 1024px) {
+            width: 13vw;
+            height: 10vh;
+        }
+        &::after {
+            content: '';
+            font-family: "Font Awesome 5 Free";
+            color: var( --start-white);
+            font-size: 3em;
+            font-weight: 900;
+            position: absolute;
+            left: auto;
+            @media screen and (max-width: 767px) {
+                //width: 90%;
+                font-size: 2em;
+            }
+        }
+        &::before {
+            content: '';
+            clip-path: polygon(100% 0, 14% 44%, 7% 49%, 5% 54%, 6% 60%, 10% 62%, 15% 64%, 100% 100%);
+            -webkit-clip-path: polygon(100% 0, 14% 44%, 7% 49%, 5% 54%, 6% 60%, 10% 62%, 15% 64%, 100% 100%);
+            ;
+            position: absolute;
+            left: -30%;
+            width: 50%;
+            height: 80%;
+            //transform: rotate(90deg);
+        }
+    }
+}
+
+.btn-saiba-mais {
+    @include btn-info;
+    background-color: var( --start-neon-dark-10);
+    .btn-icon {
+        background-color: var(--start-neon-dark-20);
+        &::after {
+            content: '\f0eb';
+        }
+        &::before {
+            background-color: var(--start-neon-dark-20);
+        }
+    }
+}
+
+.btn-lembrete {
+    @include btn-info;
+    background-color: var(--start-star-light-10);
+    .btn-icon {
+        background-color: var(--start-star-dark-15);
+        &::after {
+            content: '\f272';
+        }
+        &::before {
+            background-color: var(--start-star-dark-15);
+        }
+    }
+}
+
+.btn-observacao {
+    @include btn-info;
+    background-color: var(--start-red-light-20);
+    .btn-icon {
+        background-color: var(--start-red-light-10);
+        &::after {
+            content: '\f12a';
+        }
+        &::before {
+            background-color: var(--start-red-light-10);
+        }
+    }
+}
+
+.btn-tarefa {
+    @include btn-info;
+    background-color: var(--start-modules);
+    
+    .btn-icon {
+        background-color: var(--start-modules-dark-15);
+        //filter: brightness(110%);
+        &::after {
+            content: '\f015';
+        }
+        &::before {
+            background-color: var(--start-modules-dark-15);
+           // filter: brightness(110%);
+        }
+    }
+}

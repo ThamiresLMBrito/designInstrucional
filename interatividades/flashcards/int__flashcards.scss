@@ -1,0 +1,151 @@
+    // TODO trocar cores com $ por var(--nomedacor)
+    .flashcard-container {
+        display: flex;
+        flex-direction: row;
+        // width: 90%;
+        position: relative;
+        justify-content: center;
+        flex-wrap: wrap;
+        margin-bottom: 0.4em;
+        margin-top: 0.4em;
+        @media screen and (max-width: 768px) {
+            display: flex;
+            flex-direction: column;
+            justify-content: space-evenly;
+            align-items: center;
+            margin: 5px;
+        }
+        @media screen and (min-width: 768px) and (max-width: 1024px) {
+            display: flex;
+            flex-direction: row;
+            justify-content: space-evenly;
+            align-items: center;
+            margin: 5px;
+        }
+    }
+    
+    .flashcard {
+        background-color: var(--theme-contrast-dark-15);
+        width: 35vw;
+        height: 17vw;
+        max-height: 17vw;
+        border-radius: 15px;
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transition: all 0.3s ease-out;
+        box-shadow: 5px 12px 10px -12px var(--theme-contrast-dark-20);
+        cursor: pointer;
+        // border: 2px solid #8AAEBF;
+        &:hover {
+            background-color: var(--theme-contrast-dark-20);
+        }
+        h1 {
+            text-align: center;
+            color: white;
+            padding: 7px;
+        }
+        @media screen and (max-width: 768px) {
+            width: 89vw;
+            height: 50vw;
+            max-height: 50vw;
+            margin: 0.5em;
+        }
+        @media screen and (max-width: 1920px) and (min-width: 769px) {
+            width: 38vw;
+            height: 20vw;
+            max-height: 20vw;
+            margin: 0.5em;
+        }
+        @media screen and (min-width: 1921px) {
+            width: 20vw;
+            height: 12vw;
+            max-height: 13vw;
+            margin: 1em;
+        }
+    }
+    
+    .flashcard-front {
+        animation: opacidadeTextoAparecer 0.5s;
+        -webkit-animation: opacidadeTextoAparecer 0.5s;
+        display: flex;
+        justify-content: center;
+        .img-small {
+            width: 50%;
+            border-radius: 10px;
+        }
+    }
+    
+    .flashcard-back {
+        p {
+            text-align: center;
+            color: white;
+            height: 90%;
+            width: 94%;
+            padding: 7px;
+            text-indent: 0;
+        }
+    }
+    
+    .flash-card-active {
+        display: flex;
+        transform: scaleX(-1);
+        -webkit-transform: scaleX(-1);
+        transition: all 0.3s ease-out;
+        background-color: var(--theme-contrast-dark-25);
+        overflow-y: auto;
+        text-indent: 0;
+    }
+    
+    .flashcard-text {
+        display: none;
+        opacity: 0;
+    }
+    
+    .flashcard-text-active {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        transform: scaleX(-1);
+        -webkit-transform: scaleX(-1);
+        opacity: 1;
+        animation: opacidadeTextoAparecer 0.5s;
+        -webkit-animation: opacidadeTextoAparecer 0.5s;
+        align-self: auto;
+        width: inherit;
+    }
+    
+    @keyframes opacidadeTextoAparecer {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+    
+    @-webkit-keyframes opacidadeTextoAparecer {
+        0% {
+            opacity: 0;
+        }
+        100% {
+            opacity: 1;
+        }
+    }
+    
+    .scrollbarFc::-webkit-scrollbar {
+        width: 6px;
+    }
+    
+    .scrollbarFc::-webkit-scrollbar-track {
+        background: var(--main-light-30);
+        border-radius: 20px;
+        margin-top: 20px
+    }
+    
+    .scrollbarFc::-webkit-scrollbar-thumb {
+        background: var(--main-dark-15);
+        border-radius: 20px;
+    }
+    
+    

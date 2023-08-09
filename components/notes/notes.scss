@@ -1,0 +1,504 @@
+.notes {
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.7);
+    position: fixed;
+    align-items: center;
+    justify-content: center;
+    padding-top: 20px;
+    display: none;
+    z-index: 6;
+}
+
+.notes-container {
+    width: 88%;
+    height: 85%;
+    background-color: var(--start-star-light-30);
+    position: absolute;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+}
+
+.notes-head {
+    width: 100%;
+    height: 12%;
+    background-color: var(--start-star-light-30);
+    border-radius: 10px 10px 0px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    user-select: none;
+    h1 {
+        position: relative;
+        display: flex;
+        align-items: center;
+        color: #d2691e;
+        &::after {
+            content: "\f249";
+            font-family: "Font Awesome 5 Free";
+            width: 30px;
+            height: 30px;
+            font-size: 1em;
+            color: #d2691e;
+            position: absolute;
+            left: -1.2em;
+        }
+    }
+    @media screen and (max-width: 767px) {
+        h1 {
+            font-size: 1.5em;
+        }
+    }
+}
+
+.note-group {
+    //height: 90%;
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: space-evenly;
+}
+
+.notes-content {
+    height: 82%;
+    background-color: #ffdcb4;
+    overflow-y: auto;
+    padding: 10px;
+    h3 {
+        color: var(--start-star);
+        text-align: center;
+    }
+}
+
+.new-note {
+    min-height: 7vh;
+    max-height: 47vh;
+    width: 33%;
+    background-color: var(--start-star-light-20);
+    margin: 10px;
+    padding: 1%;
+    padding-bottom: 50px;
+    list-style-type: none;
+    border-radius: 5px;
+    font-weight: 600;
+    position: relative;
+    user-select: none;
+    @media screen and (max-width: 767px) {
+        width: 100%;
+    }
+    @media (max-width: 1024px) and (min-width: 768px) {
+        width: 50%;
+    }
+}
+
+.texto-note {
+    overflow-y: auto;
+    height: 100%;
+}
+
+.note-add-div {
+    padding-bottom: 10px;
+    min-height: 10%;
+    width: 100%;
+    display: flex;
+    justify-content: center;
+    position: relative;
+    user-select: none;
+}
+
+.note-add {
+    min-height: 8vh;
+    min-width: 8vw;
+    background-color: rgba(180, 180, 180, 55%);
+    margin: 20px;
+    border-radius: 5px;
+    position: relative;
+    display: flex;
+    justify-self: center;
+    align-self: center;
+    align-items: center;
+    justify-content: center;
+    transition: min-width 0.6s;
+    user-select: none;
+    textarea {
+        padding: 15px;
+        width: 80%;
+        min-height: 80%;
+        text-align: left;
+        font-size: 100%;
+        display: none;
+        background: transparent;
+        border-style: none;
+        outline: none;
+        resize: vertical;
+        overflow-x: hidden;
+        cursor: text;
+    }
+    button {
+        display: flex;
+        justify-content: center;
+        align-items: center;
+        align-self: center;
+        position: absolute;
+        user-select: none;
+        i {
+            position: absolute;
+            font-size: 2.5em;
+            color: rgba(58, 58, 58, 60%);
+            &:hover {
+                transform: scale(1.2);
+                transition: transform 0.2s;
+            }
+        }
+    }
+    @media screen and (max-width: 767px) {
+        min-width: 17vw;
+    }
+}
+
+.note-add-text {
+    min-width: 40vw;
+    justify-content: start;
+    transition: min-width 0.6s;
+    button {
+        right: 2%;
+        width: 50px;
+        height: 50px;
+        border-radius: 5px;
+        background-color: rgb(58, 58, 58);
+        transition: background-color 0.4s;
+        i {
+            color: white;
+        }
+    }
+    textarea {
+        display: flex;
+    }
+    @media screen and (max-width: 767px) {
+        min-width: 75vw;
+    }
+}
+
+.notes-group-title {
+    color: white;
+    width: 100%;
+    border-bottom: 1px solid rgb(87, 87, 87);
+}
+
+.note-tools {
+    bottom: 0;
+    left: 0;
+    background-color: var(--start-star-light-10);
+    width: 100%;
+    height: 40px;
+    position: absolute;
+    border-radius: 0px 0px 5px 5px;
+    font-size: 0.7em;
+    display: flex;
+    align-items: center;
+    justify-content: flex-end;
+}
+
+.note-color {
+    width: 30px;
+    height: 30px;
+    background-color: var(--start-star-light-20);
+    border-radius: 30px;
+    margin: 5px;
+    cursor: pointer;
+    transition: transform 0.2s;
+    &:hover {
+        transform: scale(1.2);
+        transition: transform 0.2s;
+    }
+    &::after {
+        content: "\f53f";
+        font-family: "Font Awesome 5 Free";
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5em;
+    }
+}
+
+.note-remove {
+    width: 30px;
+    height: 30px;
+    background-color: var(--start-star-light-20);
+    border-radius: 30px;
+    margin: 5px;
+    cursor: pointer;
+    &:hover {
+        transform: scale(1.2);
+        transition: transform 0.2s;
+    }
+    &::after {
+        content: "\f2ed";
+        font-family: "Font Awesome 5 Free";
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5em;
+    }
+}
+
+.note-info {
+    position: absolute;
+    left: 10px;
+}
+
+.note-color-pallet {
+    width: 100%;
+    height: 100%;
+    background-color: var(--start-star-light-5);
+    position: absolute;
+    border-radius: 0px 0px 5px 5px;
+    justify-content: center;
+    align-items: center;
+    display: none;
+    transition: all 0.2s;
+    button {
+        width: 15px;
+        height: 15px;
+        border-radius: 25px;
+        border: 2px solid black;
+        margin: 1%;
+        &:hover {
+            transform: scale(1.2);
+            transition: transform 0.2s;
+        }
+    }
+}
+
+.btn-color--selected {
+    transform: scale(1.3);
+    transition: transform 0.2s;
+}
+
+.btn-note-yellow {
+    background-color: var(--start-star-light-20);
+}
+
+.btn-note-blue {
+    background-color: #41BDF3;
+}
+
+.btn-note-red {
+    background-color: var(--start-red-light-10);
+}
+
+.btn-note-green {
+    background-color: #91f8ab;
+}
+
+//---------------------------------------------------------
+.note-blue {
+    background-color: var(--start-exercicios-light-10);
+    transition: all 0.4s;
+    .note-tools {
+        background-color: #41BDF3;
+    }
+    .note-color-pallet {
+        background-color: #41BDF3;
+    }
+    .note-color {
+        background-color: var(--start-exercicios-light-10);
+    }
+    .note-remove {
+        background-color: var(--start-exercicios-light-10);
+    }
+    .note-remove-quest {
+        background-color: var(--start-exercicios-light-10);
+    }
+}
+
+.note-red {
+    background-color: var(--start-red-light-10);
+    transition: all 0.4s;
+    .note-tools {
+        background-color: #e65d5d;
+    }
+    .note-color-pallet {
+        background-color: #e65d5d;
+    }
+    .note-color {
+        background-color: var(--start-red-light-10);
+    }
+    .note-remove {
+        background-color: var(--start-red-light-10);
+    }
+    .note-remove-quest {
+        background-color: var(--start-red-light-10);
+    }
+}
+
+.note-green {
+    background-color: #89eba1;
+    transition: all 0.4s;
+    .note-tools {
+        background-color: darken(#89eba1, 15%);
+    }
+    .note-color-pallet {
+        background-color: darken(#89eba1, 15%);
+    }
+    .note-color {
+        background-color: #89eba1;
+    }
+    .note-remove {
+        background-color: #89eba1;
+    }
+    .note-remove-quest {
+        background-color: #79ce8e;
+    }
+}
+
+.pallet-ok {
+    height: 30px;
+    width: 30px;
+    border-radius: 35px;
+    background-color: rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    right: 10px;
+    font-size: 1.2em;
+    font-weight: 600;
+    cursor: pointer;
+    &::after {
+        content: "\f00c";
+        font-family: "Font Awesome 5 Free";
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1em;
+    }
+}
+
+.note-remove-quest {
+    width: 100%;
+    height: 100%;
+    background-color: var(--start-star-light-5);
+    position: absolute;
+    border-radius: 0px 0px 5px 5px;
+    justify-content: flex-start;
+    align-items: center;
+    display: none;
+    transition: all 0.2s;
+    p {
+        margin-left: 3%;
+        font-size: 1.2em;
+    }
+    @media screen and (max-width: 767px) {
+        p {
+            font-size: 1em;
+        }
+    }
+}
+
+.note-btn-remove {
+    height: 30px;
+    width: 30px;
+    background-color: rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    right: 50px;
+    font-size: 1.2em;
+    font-weight: 600;
+    border-radius: 30px;
+    cursor: pointer;
+    &::after {
+        content: "\f00c";
+        font-family: "Font Awesome 5 Free";
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1em;
+    }
+}
+
+.note-cancel-remove {
+    height: 30px;
+    width: 30px;
+    background-color: rgba(0, 0, 0, 0.1);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: absolute;
+    right: 10px;
+    font-size: 1.2em;
+    font-weight: 600;
+    border-radius: 30px;
+    cursor: pointer;
+    &::after {
+        content: "\f00d";
+        font-family: "Font Awesome 5 Free";
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1em;
+    }
+}
+
+.btn-notes-close {
+    width: 40px;
+    height: 40px;
+    position: absolute;
+    right: 0;
+    top: 0;
+    cursor: pointer;
+    &::after {
+        content: "\f057";
+        font-family: "Font Awesome 5 Free";
+        color: #d2691e;
+        width: 100%;
+        height: 100%;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 2em;
+    }
+}
+
+.btn-text-add {
+    background-color: var(--start-star-light-10);
+    width: 30px;
+    height: 30px;
+    position: absolute;
+    margin-top: -2.5em;
+    border-radius: 5px;
+    &::before {
+        content: "\f249";
+        font-family: "Font Awesome 5 Free";
+        color: var(--start-white);
+        width: 100%;
+        height: 100%;
+        font-size: 1.5em;
+    }
+}
+
+.btn-text-add--check {
+    background-color: var(--start-exercicios-light-10);
+    //display: flex;
+    align-items: center;
+    justify-content: center;
+    &::before {
+        content: "\f14a";
+    }
+}
+
+.aviso-no-notes {
+    user-select: none;
+}

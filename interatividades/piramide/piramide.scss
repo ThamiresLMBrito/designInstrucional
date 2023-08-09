@@ -1,0 +1,387 @@
+
+
+
+
+@keyframes contentHide{
+    0%{    
+        min-width: 100%;
+        opacity: 1;
+        display: flex;
+       
+    }
+    90%{
+        min-width: 0%;
+        opacity: 0;
+        display: flex;
+        
+    }
+    100%{
+       display: none;
+     
+    }
+}
+@-webkit-keyframes contentHide{
+    0%{    
+        min-width: 100%;
+        opacity: 1;
+        display: flex;
+       
+    }
+    90%{
+        min-width: 0%;
+        opacity: 0;
+        display: flex;
+        
+    }
+    100%{
+       display: none;
+     
+    }
+}
+
+@keyframes contentShow{
+    0%{    
+        min-width: 50%;
+        // opacity: 0;
+        
+      
+    }
+    100%{
+        min-width: 100%;
+        // opacity: 1;
+        
+    }
+
+}
+
+@-webkit-keyframes contentShow{
+    0%{    
+        min-width: 0%;
+        opacity: 0;
+      
+    }
+    100%{
+        min-width: 100%;
+        opacity: 1;
+        
+    }
+
+}
+
+@keyframes contentShowMob{
+    0%{    
+        opacity: 0;
+    }
+    100%{
+
+        opacity: 1;   
+    }
+
+}
+
+@-webkit-keyframes contentShowMob{
+    0%{    
+        opacity: 0;
+    }
+    100%{
+
+        opacity: 1;   
+    }
+
+}
+
+@keyframes fadeInOut{
+    from{    opacity: 0;}
+    to{    opacity: 1;}
+}
+
+@-webkit-keyframes fadeInOut{
+    from{    opacity: 0;}
+    to{    opacity: 1;}
+}
+
+
+.show-content{
+
+    opacity: 1!important;
+    animation: contentShow 1s!important;
+    transition: all 0.8s!important;
+    animation-delay: 0.6s;
+    
+    
+
+}
+
+.pir-container{
+    width: 90% !important;
+    margin-left: auto;
+    margin-right: auto;
+}
+
+.hide-content{
+    // display: none!important;
+    transition: all 1s;
+
+}
+
+
+.pir-row{
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+@mixin pirPiece {
+    height: 18vh;
+    position: relative;
+    display: grid;
+    margin-bottom: 5px;
+    cursor: pointer;
+    transition: all 1s;
+    @media screen and (max-width: 768px){
+        height: 12vh;
+    }
+
+}
+
+
+.pir-piece-1{
+    @include pirPiece;
+    width: 15%; 
+    @media screen and (max-width: 768px){
+        width: 15%; 
+        
+    }
+}
+.pir-piece-2{
+    @include pirPiece;
+    width: 30%;
+    @media screen and (max-width: 768px){
+        width: 32%; 
+    }
+}
+.pir-piece-3{
+    @include pirPiece;
+    width: 45%;
+    @media screen and (max-width: 768px){
+        width: 50%; 
+    }
+}
+.pir-piece-4{
+    @include pirPiece;
+    width: 60%;
+    @media screen and (max-width: 768px){
+        width: 70%; 
+    }
+}
+.pir-piece-5{
+    @include pirPiece;
+    width: 75%;
+    @media screen and (max-width: 768px){
+        width: 90%; 
+    }
+}
+
+
+.pir-num-fix{
+    @media screen and (max-width: 768px){
+        align-self: end!important;
+        transform: scale(0.6)!important;
+
+     }
+}
+
+.pir-num {
+    width: 50px;
+    height: 50px;
+    border-radius: 50px;
+    background-color: white;
+    color: var(--theme-contrast-dark-20);
+    align-self: center;
+    justify-self: center;
+    position: absolute;
+    z-index: 1;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    font-size: 1.7em;
+    animation: fadeInOut 0.4s;
+    @media screen and (max-width: 768px){
+       transform: scale(0.7);
+    }
+
+}
+
+@mixin pirDraw() {
+    background-color: var(--theme-contrast-dark-20);
+    position: absolute;
+    height: 100%;
+    width: 100%;
+    transition: all 1s;
+ 
+}
+.pir-draw-1{
+    @include pirDraw();
+    clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    -webkit-clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    -ms-clip-path: polygon(50% 0%, 0% 100%, 100% 100%);
+    filter: brightness(100%);
+    &:hover{
+        filter: brightness(90%);
+    }
+}
+.pir-draw-2{
+    @include pirDraw();
+    clip-path: polygon(24% 0%, 76% 0%, 100% 100%, 0% 100%);
+    -webkit-clip-path: polygon(24% 0%, 76% 0%, 100% 100%, 0% 100%);
+    -ms-clip-path: polygon(24% 0%, 76% 0%, 100% 100%, 0% 100%);
+    filter: brightness(120%);
+    &:hover{
+        filter: brightness(90%);
+    }
+}
+.pir-draw-3{
+    @include pirDraw();
+    clip-path: polygon(16% 0%, 84% 0%, 100% 100%, 0% 100%);
+    -webkit-clip-path: polygon(16% 0%, 84% 0%, 100% 100%, 0% 100%);
+    -ms-clip-path: polygon(16% 0%, 84% 0%, 100% 100%, 0% 100%);
+    filter: brightness(140%);
+    &:hover{
+        filter: brightness(90%);
+    }
+}
+.pir-draw-4{
+    @include pirDraw();
+    clip-path: polygon(12% 0%, 88% 0%, 100% 100%, 0% 100%);
+    -webkit-clip-path: polygon(12% 0%, 88% 0%, 100% 100%, 0% 100%);
+    -ms-clip-path: polygon(12% 0%, 88% 0%, 100% 100%, 0% 100%);
+    filter: brightness(160%);
+    &:hover{
+        filter: brightness(90%);
+    }
+}
+.pir-draw-5{
+    @include pirDraw();
+    clip-path: polygon(10% 0%, 90% 0%, 100% 100%, 0% 100%);
+    -webkit-clip-path: polygon(10% 0%, 90% 0%, 100% 100%, 0% 100%);
+    -ms-clip-path: polygon(10% 0%, 90% 0%, 100% 100%, 0% 100%);
+    filter: brightness(180%);
+    &:hover{
+        filter: brightness(90%);
+    }
+}
+
+
+@mixin pirContent() {
+    position: relative;
+    align-self: center;
+    justify-self: center;
+    min-width: 100%;
+    min-height: 50%;
+    padding: 2%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    background-color: var(--theme-contrast-dark-25);
+    filter: brightness(90%);
+    border-bottom: 1px solid var(--start-white);
+    color: white;
+    transform: rotateY(180deg);
+    opacity: 0;
+    z-index: 1;
+    animation: contentHide 0.5s;
+    transition: all 1s;
+
+    @media screen and (max-width: 768px){
+       animation: contentShowMob 0.5s!important;
+       max-height: 60%;
+       font-size: 0.9em;
+
+    }
+    // animation: fadeInOut 1s;
+  
+
+    span{
+        font-size: 1.5em;
+        font-weight: 700;
+        @media screen and (max-width: 768px){
+            font-size: 1em;
+         }
+    }
+    &::after{
+        display: block;
+        font-weight: 700;
+        font-size: 3em;
+        position: absolute;
+        left: -60px;
+        color: var(--theme-contrast-dark-20);
+        @media screen and (max-width: 768px){
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            width: 50px;
+            height: 50px;
+            font-size: 1.5em;
+            // background-color: white;
+            border-radius: 50px;
+            left: -40px;
+        }
+
+    }
+}
+
+.pir-content-1{
+    @include pirContent();
+    @media screen and (max-width: 768px){
+        width: 270%;
+    }
+    &::after{
+        content: "1.";  
+    }
+    
+}
+.pir-content-2{
+    @include pirContent();
+    @media screen and (max-width: 768px){
+        width: 160%;
+    }
+    &::after{
+        content: "2.";
+    }
+}
+
+.pir-content-3{
+    @include pirContent();
+    @media screen and (max-width: 768px){
+        width: 130%;
+    }
+    &::after{
+        content: "3.";
+    }
+}
+
+.pir-content-4{
+    @include pirContent();
+    @media screen and (max-width: 768px){
+        min-width: 105%;
+    }
+    &::after{
+        content: "4.";
+    }
+}
+
+.pir-content-5{
+    @include pirContent();
+    @media screen and (max-width: 768px){
+        min-width: 95%;
+    }
+    &::after{
+        content: "5.";
+    }
+}
+
+
+
+.viraPiramide{
+    transform: rotateY(180deg);
+}

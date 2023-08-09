@@ -1,0 +1,505 @@
+$cor--light: #dde8fc;
+$cor--main: #91afe5;
+
+
+
+@keyframes ddDemo {
+    0% {
+        transform: translate3d(0px, 0px, 0px);
+        opacity: 1;
+    }
+
+    100% {
+        transform: translate3d(80%, -230%, 0px);
+        opacity: 0;
+    }
+}
+
+@keyframes winDD {
+    0% {
+        transform: scaleX(0);
+    }
+
+    100% {
+        transform: scaleX(1);
+    }
+}
+
+@keyframes dragando {
+    0% {
+        height: 50%;
+    }
+    40% {
+        height: 65%;
+    }
+
+    100% {
+        height: 50%;
+    }
+}
+
+@keyframes drop {
+    0% {
+        transform: scale(0.7);
+    }
+    50% {
+        transform: scale(0.6);
+    }
+    100% {
+        transform: scale(1);
+    }
+}
+
+@keyframes dropFalse {
+    0% {
+        opacity: 0;
+        transform: translateX(0px);
+    }
+    40% {
+        opacity: 1;
+        transform: translateX(10px);
+    }
+    60% {
+        transform: translateX(-20px);
+    }
+    80% {
+        transform: translateX(10px);
+    }
+    100% {
+        transform: translateX(0px);
+    }
+}
+
+.dd-container {
+    height: 80vh;
+    width: 100%;
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+
+    @media screen and (max-width: 768px) {
+        height: 60vh;
+        width: 100%;
+    }
+}
+
+.dd-row-drag {
+    height: 50%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: var(--main-light-45);
+    // box-shadow: inset rgba(0, 0, 0, 0.3) -2px 5px 31px -16px;
+    border-radius: 0px 0px 20px 20px;
+    position: relative;
+
+    p {
+        position: absolute;
+        color: $cor--main;
+        font-size: 1.3em;
+        top: 5px;
+    }
+
+    // overflow-y: none;
+    @media screen and (max-width: 768px) {
+        // height: 80%;
+        width: 100%;
+        display: block;
+        padding-top: 2%;
+
+        p {
+            color: darken($cor--main, 10%);
+            font-size: 0.8em;
+            margin: 0;
+            top: -30px;
+            text-align: center;
+            position: relative;
+        }
+        // overflow-x: auto;
+        // display: block;
+    }
+}
+
+
+
+.draggable-piece {
+    height: 50%;
+    width: 15%;
+    background-color: darken($cor--main, 10%) !important;
+    user-select: none;
+    transition: box-shadow, margin-bottom, background-color, margin-bottom 0.3s;
+    border-radius: 10px;
+    border-bottom: 5px solid darken($cor--main, 30%);
+    color: white;
+    font-size: 1em;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    position: relative;
+
+
+    &:hover {
+        background-color: darken($cor--main, 20%) !important;
+        transition: box-shadow, background-color, margin-bottom 0.4s;
+        border-bottom: 5px solid darken($cor--main, 40%);
+        margin-bottom: 5%;
+    }
+
+    @media screen and (max-width: 768px) {
+        margin-left: 3.3%;
+
+        margin-top: 5px;
+        height: 45%;
+        width: 28%;
+        float: left;
+        font-size: 1em;
+
+        &:hover {
+            margin-bottom: 0%;
+            // margin-right: 0%;
+        }
+    }
+}
+
+.dragging {
+    box-shadow: rgba(0, 0, 0, 0.5) 1px 46px 40px -15px;
+    background-color: darken($cor--main, 20%) !important;
+    transition: box-shadow 0.3s;
+    animation: dragando 0.4s;
+
+    @media screen and (max-width: 768px) {
+        animation: none;
+    }
+}
+
+.dropped-piece {
+    height: 100%;
+    width: 100%;
+    user-select: none;
+    position: absolute;
+    animation: drop 0.4s;
+    border-radius: 10px;
+    color: white;
+    font-size: 1.5em;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 5px solid darken(rgb(41, 204, 177), 15%);
+
+    @media screen and (max-width: 768px) {
+        font-size: 1em;
+    }
+}
+
+.re-draggable-piece {
+    height: 100%;
+    width: 100%;
+    position: absolute;
+    animation: dropFalse 0.8s;
+    border-radius: 10px;
+    color: white;
+    font-size: 1.5em;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-bottom: 5px solid darken(rgb(255, 130, 130), 15%);
+
+    @media screen and (max-width: 768px) {
+        font-size: 1em;
+    }
+}
+
+.dd-question {
+    background-color: var(--main-light-20);
+    filter: contrast(1.2);
+    height: fit-content;
+    width: 100%;
+    min-height: 50px;
+    border-radius: 20px 20px 0px 0px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 1em;
+    font-weight: 600;
+    color: lighten($cor--light, 30%);
+    margin-left: auto;
+    margin-right: auto;
+    position: relative;
+
+    @media screen and (max-width: 768px) {
+        width: 100%;
+        font-size: 1em;
+    }
+}
+
+.dd-btn-tuto {
+    width: 35px;
+    height: 35px;
+    border-radius: 40px;
+    background-color: lighten($cor--light, 5%);
+    color: darken($cor--light, 15%);
+    font-weight: 700;
+    position: absolute;
+    right: 10px;
+    top: 10px;
+    // bottom: -20px;
+    z-index: 1;
+    justify-content: center;
+    display: flex;
+    align-items: center;
+    cursor: pointer;
+
+    @media screen and (max-width: 768px) {
+        top: 5px;
+        width: 30px;
+        height: 30px;
+    }
+}
+
+.dd-demo {
+    &::before {
+        content: "";
+        width: 100%;
+        height: 100%;
+        background-color: rgba($cor--main, $alpha: 0.8);
+        border-radius: 10px;
+        position: absolute;
+        animation: ddDemo 2s infinite;
+    }
+}
+
+.dd-row-drop {
+    height: 50%;
+    display: flex;
+    justify-content: space-evenly;
+    align-items: center;
+    background-color: var(--main-light-30);
+    background-image: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 35px,
+        rgba(255, 255, 255, 0.1) 35px,
+        rgba(255, 255, 255, 0.1) 70px
+    );
+    position: relative;
+
+    @media screen and (max-width: 768px) {
+        height: 50%;
+        //  flex-direction: column;
+    }
+}
+
+.dd-drop {
+    height: 80%;
+    width: 25%;
+    background-color: var(--main-light-45);
+    box-shadow: inset rgba(0, 0, 0, 0.3) -2px 5px 31px -16px;
+    position: relative;
+    border-radius: 10px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: 0;
+    box-sizing: content-box;
+
+    &::before {
+        content: "+";
+        margin: 0;
+        font-size: 6em;
+        display: block;
+        position: absolute;
+        color: $cor--light;
+        transition: transform 0.4s;
+        margin-bottom: 8%;
+    }
+
+    &::after {
+        content: "";
+        width: 20px;
+        height: 20px;
+        background-color: darken($cor--light, 10%);
+        border: 3px solid var(--start-white);
+        border-radius: 20px;
+        position: absolute;
+        top: -10px;
+    }
+
+    @media screen and (max-width: 768px) {
+        height: 50%;
+        width: 30%;
+        &::before {
+            font-size: 4em;
+        }
+    }
+}
+
+// div {
+//     // border: 1px solid red;
+// }
+
+.ddTeste {
+    display: flex;
+    width: fit-content;
+}
+
+.drop {
+    height: 50px;
+    width: 200px;
+    box-sizing: border-box;
+}
+
+.false {
+    background-color: rgb(255, 130, 130);
+}
+
+.true {
+    background-color: #3be2c6;
+}
+
+.dd-target {
+    background-color: var(--main-light-45) !important;
+    transition: border background-color 0.6s;
+
+
+    &::before {
+        transition: transform  0.4s;
+        transform: scale(0.8);
+        
+    }
+}
+
+.dd-win {
+    &::before {
+        content: "";
+        width: 100%;
+        height: 100%;
+        background-color: rgba(0, 255, 157, 0.459);
+        // background-image: repeating-linear-gradient(45deg, transparent, transparent 35px, rgba(255, 255, 255, 0.3) 35px, rgba(255, 255, 255, 0.3) 70px);
+        position: absolute;
+        animation: winDD 1s;
+        transform-origin: left center;
+    }
+}
+
+.drop-true {
+    &::after {
+        background-color: rgb(49, 255, 8);
+        transition: background-color 0.4s;
+    }
+}
+
+.drop-false {
+    &::after {
+        background-color: rgb(255, 0, 0);
+        transition: background-color 0.4s;
+    }
+}
+
+.dd-tuto {
+    height: 50%;
+    width: 100%;
+    background-color: rgba($color: #000000, $alpha: 0.5);
+    background-image: repeating-linear-gradient(
+        45deg,
+        transparent,
+        transparent 35px,
+        rgba(141, 141, 141, 0.1) 35px,
+        rgba(141, 141, 141, 0.1) 70px
+    );
+    position: absolute;
+    z-index: 1;
+    // display: none;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 0px 0px 20px 20px;
+    bottom: 0;
+
+    p {
+        color: white;
+        justify-self: center;
+        align-self: start;
+        font-size: 1em;
+        // margin-top: 3%;
+        top: 0;
+
+        @media screen and (max-width: 768px) {
+            font-size: 0.79em;
+            margin-top: -65px!important;
+            align-self: center;
+            text-indent: 0;
+        }
+    }
+    @media screen and (max-width: 768px) {
+
+    }
+}
+
+.dd-tuto-item-row {
+    height: 57%;
+    width: 99%;
+    // background-color: white;
+    border: 4px solid white;
+    border-radius: 10px;
+    position: absolute;
+    left: 0.5%;
+    display: flex;
+    align-content: center;
+    // justify-content: center;
+
+    @media screen and (max-width: 768px) {
+        border: 3px solid white;
+        height: 95%;
+        width: 95%;
+        justify-self: center;
+        align-self: center;
+        left: auto;
+    }
+}
+
+.dd-tuto-item {
+    height: 91.5%;
+    width: 16%;
+    background-color: white;
+    border: 5px solid white;
+    border-radius: 10px;
+    position: absolute;
+    align-self: center;
+    margin: 0.5%;
+    animation: ddDemo 2s infinite;
+
+    @media screen and (max-width: 768px) {
+        height: 40%;
+        width: 30%;
+        top: 10%;
+    }
+}
+
+.dd-tuto-btn {
+    width: 200px;
+    height: 45px;
+    background-color: white;
+    // align-self: end;
+    // justify-self: center;
+    position: absolute;
+    // bottom: 3px;
+    text-align: center;
+    border-radius: 5px;
+    font-size: 1em;
+    font-weight: 700;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+
+    @media screen and (max-width: 768px) {
+        width: 160px;
+        height: 50px;
+        align-self: center;
+
+        // top: -52px;
+    }
+}

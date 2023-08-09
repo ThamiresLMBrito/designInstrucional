@@ -1,0 +1,109 @@
+//tools
+
+
+.tools{
+    width: 80px;
+    min-height: 10%;
+    position: fixed;
+    right: 0;
+    bottom: 0;
+    padding-bottom: 10px;
+    display: flex;
+    flex-direction: column-reverse;
+    align-items: center;
+    z-index: 10;
+    user-select: none;
+
+    @media screen and (min-width: 1921px) {
+        right: 20%;
+    }
+}
+
+
+.tools-btn-plus{
+    width: 65px;
+    height: 65px;
+    border-radius: 70px;
+    background-color: var(--theme-light-5);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.4s;
+    cursor: pointer;
+
+
+    &::after{
+        content: '\f067';
+        font-family: "Font Awesome 5 Free";
+        font-size: 1.7em;
+        font-weight: 900;
+        color: $start-contrast;
+        transition: transform 0.4s ease-out;
+        transform: rotate(0deg);
+    }
+
+
+}
+
+@mixin toolsBtn($bgColor, $iconCode){
+    width: 55px;
+    height: 55px;
+    border-radius: 70px;
+    background-color: $bgColor;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    cursor: pointer;
+    margin-bottom: 10px;
+    z-index: -1;
+    transition: all 0.4s;
+    margin-bottom: -57px;
+
+    &::after{
+        content: $iconCode;
+        font-family: "Font Awesome 5 Free";
+        font-size: 1.4em;
+        font-weight: 900;
+        color: $start-contrast;
+    }
+}
+
+
+.tools-btn-salvos{
+
+    @include toolsBtn(var(--btn-tool-save), '\f02e');
+
+}
+
+.tools-btn-notes{
+
+    @include toolsBtn(var(--btn-tool-note), '\f249');
+
+}
+
+.tools-btn-config{
+
+    @include toolsBtn(var(--btn-tools), '\f013');
+
+}
+
+
+.openTools{
+    margin-bottom: 10px;
+    
+}
+
+.turnBtnTools{
+    background-color: var(--start-red);
+    transition: background-color 0.4s;
+    &::after{
+        transform: rotate(135deg);
+        transition: transform 0.3s ease-in;
+       
+    }
+}
+
+
+
+
+
